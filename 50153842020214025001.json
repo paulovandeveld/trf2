@@ -1,0 +1,365 @@
+{
+    "numero_processo_raw": "50153842020214025001",
+    "mais_detalhes": {
+        "numero_processo": "5015384-20.2021.4.02.5001",
+        "classe_acao": "Apelação Cível",
+        "competencia": "Previdenciária (Turma)",
+        "data_autuacao": "24/09/2024",
+        "situacao_processo": "MOVIMENTO",
+        "orgao_julgador": "GABINETE 34 - JFC",
+        "juiz": "GUILHERME BOLLORINI PEREIRA"
+    },
+    "assuntos": {
+        "assunto_principal": {
+            "codigo": "040119",
+            "descricao": "Aposentadoria por Tempo de Contribuição (Art. 55/6), Benefícios em Espécie, DIREITO PREVIDENCIÁRIO"
+        }
+    },
+    "movimentos": {
+        "1": {
+            "data_movimentacao": "28/05/2025",
+            "Descricao": "CIÊNCIA, COM RENÚNCIA AO PRAZO - Refer. ao Evento: 40",
+            "Documentos": []
+        },
+        "2": {
+            "data_movimentacao": "28/05/2025",
+            "Descricao": "Publicado no DJEN - no dia 28/05/2025 - Refer. ao Evento: 50",
+            "Documentos": []
+        },
+        "3": {
+            "data_movimentacao": "27/05/2025",
+            "Descricao": "Disponibilizado no DJEN - no dia 27/05/2025 - Refer. ao Evento: 50",
+            "Documentos": []
+        },
+        "4": {
+            "data_movimentacao": "26/05/2025",
+            "Descricao": "Ato ordinatório praticado – Documento encaminhado à disponibilização no Diário Eletrônico - no dia 27/05/2025 - Refer. ao Evento: 50",
+            "Documentos": [
+                {
+                    "nome": "ATO ORDINATÓRIO 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21748247661747812687079219703&evento=21748247661747812687079301880&key=e56537649a0eae65f6f5c88bc8e57ce427bcebb4636f263d4b6cafa9c275b962&mesmoGrau=S&hash=766af7870600c6245a94e6b3405c0f3b"
+                }
+            ]
+        },
+        "5": {
+            "data_movimentacao": "26/05/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Contrarrazões Refer. ao Evento 49 ( APELANTE - JOSE JOMAR COCO) Prazo: 15 dias Status:ABERTO Data inicial da contagem do prazo: 29/05/2025 00:00:00 Data final: 18/06/2025 23:59:59",
+            "Documentos": []
+        },
+        "6": {
+            "data_movimentacao": "26/05/2025",
+            "Descricao": "RECURSO ESPECIAL - Refer. ao Evento: 41",
+            "Documentos": []
+        },
+        "7": {
+            "data_movimentacao": "26/05/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 41",
+            "Documentos": []
+        },
+        "8": {
+            "data_movimentacao": "21/05/2025",
+            "Descricao": "Publicado no DJEN - no dia 21/05/2025 - Refer. ao Evento: 40",
+            "Documentos": []
+        },
+        "9": {
+            "data_movimentacao": "20/05/2025",
+            "Descricao": "Disponibilizado no DJEN - no dia 20/05/2025 - Refer. ao Evento: 40",
+            "Documentos": []
+        },
+        "10": {
+            "data_movimentacao": "20/05/2025",
+            "Descricao": "Disponibilizado no DJEN - no dia 20/05/2025 - Refer. ao Evento: 40",
+            "Documentos": []
+        },
+        "11": {
+            "data_movimentacao": "20/05/2025",
+            "Descricao": "CIÊNCIA, COM RENÚNCIA AO PRAZO - Refer. ao Evento: 42",
+            "Documentos": []
+        },
+        "12": {
+            "data_movimentacao": "20/05/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 42",
+            "Documentos": []
+        },
+        "13": {
+            "data_movimentacao": "18/05/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 38 ( MPF - MINISTÉRIO PÚBLICO FEDERAL) Prazo: 30 dias Status:FECHADO ( 44 - CIÊNCIA, COM RENÚNCIA AO PRAZO ) Data inicial da contagem do prazo: 21/05/2025 00:00:00 Data final: 02/07/2025 23:59:59 Domicílio Judicial Eletrônico: Enviado em 18/05/2025 23:49:15",
+            "Documentos": []
+        },
+        "14": {
+            "data_movimentacao": "18/05/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 38 ( APELANTE - INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS) Prazo: 30 dias Status:FECHADO ( 49 - RECURSO ESPECIAL ) Data inicial da contagem do prazo: 27/05/2025 00:00:00 Data final: 08/07/2025 23:59:59 Domicílio Judicial Eletrônico: Enviado em 18/05/2025 23:49:15",
+            "Documentos": []
+        },
+        "15": {
+            "data_movimentacao": "18/05/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 38 ( APELANTE - JOSE JOMAR COCO) Prazo: 15 dias Status:FECHADO ( 54 - CIÊNCIA, COM RENÚNCIA AO PRAZO ) Data inicial da contagem do prazo: 22/05/2025 00:00:00 Data final: 11/06/2025 23:59:59",
+            "Documentos": []
+        },
+        "16": {
+            "data_movimentacao": "14/05/2025",
+            "Descricao": "Remetidos os Autos com acórdão - GAB34JFC -&gt; SUB09TESP",
+            "Documentos": []
+        },
+        "17": {
+            "data_movimentacao": "14/05/2025",
+            "Descricao": "Juntada de Relatório/Voto/Acórdão",
+            "Documentos": [
+                {
+                    "nome": "RELATÓRIO/VOTO 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21747259788943912603717000959&evento=21747259788943912603717019542&key=6d24e95add482793606dede29a904dfbda16ced19a6545588f3bee6ad64a8c7c&mesmoGrau=S&hash=9121b5e62191a736716f04bb42bb847c"
+                },
+                {
+                    "nome": "ACÓRDÃO 2",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21747259788943912603717013439&evento=21747259788943912603717019542&key=c2825b1e93e726f42beff02944247f6f96a3e8129bb7a5259fab6eb5d8c19309&mesmoGrau=S&hash=7a68659aaed9208d1afbfdfae826f54e"
+                }
+            ]
+        },
+        "18": {
+            "data_movimentacao": "13/05/2025",
+            "Descricao": "Embargos de Declaração Acolhidos em Parte - por unanimidade",
+            "Documentos": [
+                {
+                    "nome": "EXTRATO DE ATA 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21747173354771181095170171904&evento=21747173354771181095170185547&key=646c539d78e6c3dd451d0f6ef5821fcd4cf58797b809d8632f9d2920057c7bb0&mesmoGrau=S&hash=e641350f37c4ff6eed09f3323fe7b8ee"
+                }
+            ]
+        },
+        "19": {
+            "data_movimentacao": "09/05/2025",
+            "Descricao": "Intimação Eletrônica - Expedida/Certificada - Pauta - Sessão Nova Sessão virtual - ALTERAÇÃO DE DATA/HORA Período da sessão: 05/05/2025 13:00 a 13/05/2025 12:59 Sequencial: 214",
+            "Documentos": []
+        },
+        "20": {
+            "data_movimentacao": "08/04/2025",
+            "Descricao": "Disponibilizado no Diário Eletrônico - Pauta - no dia 08/04/2025 Período da sessão: 05/05/2025 13:00 a 09/05/2025 12:59",
+            "Documentos": []
+        },
+        "21": {
+            "data_movimentacao": "08/04/2025",
+            "Descricao": "Disponibilizado no Diário Eletrônico - Pauta - no dia 08/04/2025 Período da sessão: 05/05/2025 13:00 a 09/05/2025 12:59",
+            "Documentos": []
+        },
+        "22": {
+            "data_movimentacao": "07/04/2025",
+            "Descricao": "Juntada de certidão",
+            "Documentos": [
+                {
+                    "nome": "CERTIDÃO 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21744043470159337608432269488&evento=21744043470159337608432296161&key=74d4d49487702826efe1aa982deb82826ae8339ca10f965788f029cfb26d695e&mesmoGrau=S&hash=489acd45569902126a239c562273b855"
+                }
+            ]
+        },
+        "23": {
+            "data_movimentacao": "07/04/2025",
+            "Descricao": "Remessa para disponibilização no Diário Eletrônico de Pauta - no dia 08/04/2025",
+            "Documentos": []
+        },
+        "24": {
+            "data_movimentacao": "07/04/2025",
+            "Descricao": "Intimação Eletrônica - Expedida/Certificada - Pauta - Sessão Nova Sessão virtual Período da sessão: 05/05/2025 13:00 a 09/05/2025 12:59 Sequencial: 214",
+            "Documentos": []
+        },
+        "25": {
+            "data_movimentacao": "07/04/2025",
+            "Descricao": "Inclusão em pauta de julgamento pelo relator - Sessão Nova Sessão virtual Período da sessão: 05/05/2025 13:00 a 09/05/2025 12:59 Sequencial: 214",
+            "Documentos": []
+        },
+        "26": {
+            "data_movimentacao": "07/04/2025",
+            "Descricao": "Remetidos os Autos com pedido de dia pelo relator - GAB34JFC -&gt; SUB09TESP",
+            "Documentos": []
+        },
+        "27": {
+            "data_movimentacao": "01/04/2025",
+            "Descricao": "Decorrido prazo - Refer. ao Evento: 23",
+            "Documentos": []
+        },
+        "28": {
+            "data_movimentacao": "18/03/2025",
+            "Descricao": "Conclusos para decisão com Embargos de Declaração - SUB09TESP -&gt; GAB34JFC",
+            "Documentos": []
+        },
+        "29": {
+            "data_movimentacao": "17/03/2025",
+            "Descricao": "CONTRARRAZÕES - Refer. ao Evento: 21",
+            "Documentos": []
+        },
+        "30": {
+            "data_movimentacao": "16/03/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 23",
+            "Documentos": []
+        },
+        "31": {
+            "data_movimentacao": "10/03/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 21",
+            "Documentos": []
+        },
+        "32": {
+            "data_movimentacao": "06/03/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Contrarrazões Refer. ao Evento 22 ( APELANTE - INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS) Prazo: 10 dias Status:FECHADO ( 28 - Decorrido prazo ) Data inicial da contagem do prazo: 18/03/2025 00:00:00 Data final: 31/03/2025 23:59:59",
+            "Documentos": []
+        },
+        "33": {
+            "data_movimentacao": "06/03/2025",
+            "Descricao": "EMBARGOS DE DECLARAÇÃO - Refer. ao Evento: 14",
+            "Documentos": []
+        },
+        "34": {
+            "data_movimentacao": "28/02/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Contrarrazões Refer. ao Evento 20 ( APELANTE - JOSE JOMAR COCO) Prazo: 5 dias Status:FECHADO ( 26 - CONTRARRAZÕES ) Data inicial da contagem do prazo: 11/03/2025 00:00:00 Data final: 17/03/2025 23:59:59",
+            "Documentos": []
+        },
+        "35": {
+            "data_movimentacao": "28/02/2025",
+            "Descricao": "EMBARGOS DE DECLARAÇÃO - Refer. ao Evento: 15",
+            "Documentos": []
+        },
+        "36": {
+            "data_movimentacao": "24/02/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. aos Eventos: 14 e 15",
+            "Documentos": []
+        },
+        "37": {
+            "data_movimentacao": "14/02/2025",
+            "Descricao": "CIÊNCIA, COM RENÚNCIA AO PRAZO - Refer. ao Evento: 16",
+            "Documentos": []
+        },
+        "38": {
+            "data_movimentacao": "14/02/2025",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 16",
+            "Documentos": []
+        },
+        "39": {
+            "data_movimentacao": "14/02/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 12 ( MPF - MINISTÉRIO PÚBLICO FEDERAL) Prazo: 30 dias Status:FECHADO ( 18 - CIÊNCIA, COM RENÚNCIA AO PRAZO ) Data inicial da contagem do prazo: 17/02/2025 00:00:00 Data final: 02/04/2025 23:59:59",
+            "Documentos": []
+        },
+        "40": {
+            "data_movimentacao": "14/02/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 12 ( APELANTE - INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS) Prazo: 30 dias Status:FECHADO ( 20 - EMBARGOS DE DECLARAÇÃO ) Data inicial da contagem do prazo: 25/02/2025 00:00:00 Data final: 11/04/2025 23:59:59",
+            "Documentos": []
+        },
+        "41": {
+            "data_movimentacao": "14/02/2025",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Julgamento Refer. ao Evento 12 ( APELANTE - JOSE JOMAR COCO) Prazo: 15 dias Status:FECHADO ( 22 - EMBARGOS DE DECLARAÇÃO ) Data inicial da contagem do prazo: 25/02/2025 00:00:00 Data final: 21/03/2025 23:59:59",
+            "Documentos": []
+        },
+        "42": {
+            "data_movimentacao": "12/02/2025",
+            "Descricao": "Remetidos os Autos com acórdão - GAB34JFC -&gt; SUB09TESP",
+            "Documentos": []
+        },
+        "43": {
+            "data_movimentacao": "12/02/2025",
+            "Descricao": "Juntada de Relatório/Voto/Acórdão",
+            "Documentos": [
+                {
+                    "nome": "RELATÓRIO/VOTO 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21739375402356545756833511949&evento=21739375402356545756833543900&key=476493f98d3809282cf68b204ed4c50fd114558a04b17ca2d240599584df7edd&mesmoGrau=S&hash=17b7305222e5f25abfd9e053f16a64d9"
+                },
+                {
+                    "nome": "ACÓRDÃO 2",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21739375402356545756833531743&evento=21739375402356545756833543900&key=4fea5b7714907902eab09cd67d6433847696884017fe47558420f080bc91201d&mesmoGrau=S&hash=073609cfa31608ba6c5788695097dfa5"
+                }
+            ]
+        },
+        "44": {
+            "data_movimentacao": "11/02/2025",
+            "Descricao": "Sentença desconstituída - por unanimidade",
+            "Documentos": [
+                {
+                    "nome": "EXTRATO DE ATA 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21739296541798125579320545104&evento=21739296541798125579320552102&key=bdbc403d41ed852213898bc93bf33ab4035927d16c5592ef6b28620625bfafbc&mesmoGrau=S&hash=e6df241a9038602ab73b83d52794233c"
+                }
+            ]
+        },
+        "45": {
+            "data_movimentacao": "07/02/2025",
+            "Descricao": "Intimação Eletrônica - Expedida/Certificada - Pauta - Sessão Nova Sessão virtual - ALTERAÇÃO DE DATA/HORA Período da sessão: 03/02/2025 13:00 a 11/02/2025 12:59 Sequencial: 536",
+            "Documentos": []
+        },
+        "46": {
+            "data_movimentacao": "22/01/2025",
+            "Descricao": "Disponibilizado no Diário Eletrônico - Pauta - no dia 22/01/2025 Período da sessão: 03/02/2025 13:00 a 07/02/2025 12:59",
+            "Documentos": []
+        },
+        "47": {
+            "data_movimentacao": "21/01/2025",
+            "Descricao": "Juntada de certidão",
+            "Documentos": [
+                {
+                    "nome": "CERTIDÃO 1",
+                    "URL": "https://eproc.trf2.jus.br/eproc/controlador.php?acao=acessar_documento&doc=21737493833631168409567247045&evento=21737493833631168409567256823&key=1079266733d790f4faf07f7b90a50daef241bade65ba8433e62ef525230f63af&mesmoGrau=S&hash=99265e06ea62c2a72a7a4eb859374218"
+                }
+            ]
+        },
+        "48": {
+            "data_movimentacao": "21/01/2025",
+            "Descricao": "Intimação Eletrônica - Expedida/Certificada - Pauta - Sessão Nova Sessão virtual Período da sessão: 03/02/2025 13:00 a 07/02/2025 12:59 Sequencial: 536",
+            "Documentos": []
+        },
+        "49": {
+            "data_movimentacao": "21/01/2025",
+            "Descricao": "Inclusão em pauta de julgamento pelo relator - Sessão Nova Sessão virtual Período da sessão: 03/02/2025 13:00 a 07/02/2025 12:59 Sequencial: 536",
+            "Documentos": []
+        },
+        "50": {
+            "data_movimentacao": "18/12/2024",
+            "Descricao": "Remetidos os Autos com pedido de dia pelo relator - GAB34JFC -&gt; SUB09TESP",
+            "Documentos": []
+        },
+        "51": {
+            "data_movimentacao": "25/11/2024",
+            "Descricao": "PARECER - Refer. ao Evento: 2",
+            "Documentos": []
+        },
+        "52": {
+            "data_movimentacao": "25/11/2024",
+            "Descricao": "Confirmada a intimação eletrônica - Refer. ao Evento: 2",
+            "Documentos": []
+        },
+        "53": {
+            "data_movimentacao": "22/11/2024",
+            "Descricao": "Expedida/certificada a intimação eletrônica - Vista ao MPF para Parecer Refer. ( MPF - MINISTÉRIO PÚBLICO FEDERAL) Prazo: 30 dias Status:FECHADO ( 4 - PARECER ) Data inicial da contagem do prazo: 26/11/2024 00:00:00 Data final: 05/02/2025 23:59:59",
+            "Documentos": []
+        },
+        "54": {
+            "data_movimentacao": "24/09/2024",
+            "Descricao": "Distribuído por sorteio (GAB34JFC) - Autos com o Relator",
+            "Documentos": []
+        }
+    },
+    "polo_ativo": {
+        "autores": [
+            "JOSE JOMAR COCO -- 652.710.507-00"
+        ],
+        "advogados_autor": [
+            "EDUARDO THIEBAUT PEREIRA - ES005926",
+            "ROBERTA SOARES CAIRES RIBEIRO - ES025436"
+        ]
+    },
+    "polo_passivo": {
+        "reus": [
+            "INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS -- 29.979.036/0001-40"
+        ],
+        "advogados_reu": [
+            "ANDRÉ AMARAL DE AGUIAR - PRF-1_2_PREV"
+        ]
+    },
+    "info_adicional": {
+        "Ação Coletiva de subst. processual": "Não",
+        "Agravo Retido": "Não",
+        "Doença Grave": "Não",
+        "Grande devedor": "Não",
+        "Idoso": "Sim",
+        "Justiça Gratuita": "Deferida",
+        "Penhora no rosto dos autos": "Não",
+        "Penhora/apreensão de bens": "Não",
+        "Pessoa com deficiência": "Não",
+        "Petição Urgente": "Não",
+        "Possui bem associado": "não",
+        "Valor da Causa": "R$ 80.000,00",
+        "Vista Ministério Público": "Não"
+    }
+}
