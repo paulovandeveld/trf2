@@ -98,3 +98,29 @@ class Trf2DownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+import random
+from .proxy_utils import carregar_proxies
+
+class ProxyRotationMiddleware:
+    """Selects a random proxy for each request using Webshare proxies."""
+
+    def __init__(self, api_url, api_key):
+        self.api_url = api_url
+        self.api_key = api_key
+        self.proxies = carregar_proxies(api_url, api_key)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        api_url = crawler.settings.get('WEBSHARE_PROXY_URL')
+        api_key = crawler.settings.get('WEBSHARE_API_KEY')
+        mw = cls(api_url, api_key)
+        crawler.signals.connect(mw.spider_opened, signal=signals.spider_opened)
+        return mw
+
+    def spider_opened(self, spider):
+        spider.logger.info(f"Proxy middleware loaded {len(self.proxies)} proxies")
+
+    def process_request(self, request, spider):
+        if self.proxies:
+            request.meta['proxy'] = random.choice(self.proxies)
