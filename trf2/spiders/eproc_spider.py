@@ -470,6 +470,7 @@ class EprocTrf2Spider(scrapy.Spider):
                 url=self.base_url,
                 headers=self.custom_headers,
                 cookies=self.initial_cookies,
+                dont_filter=True,
                 callback=self.parse_initial_page,
                 cb_kwargs={"processo": proc},
             )
