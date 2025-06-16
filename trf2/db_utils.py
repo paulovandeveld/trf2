@@ -49,7 +49,7 @@ def fetch_process_numbers():
 
         data_anterior = (datetime.today() - timedelta(days=3)).strftime("%Y-%m-%d")
         query = """
-            SELECT TOP 20 numero_processo
+            SELECT TOP 100 numero_processo
             FROM dbo.cnjComunicacoesProcessuais c
             WHERE link_documento LIKE 'https://eproc.trf2%' AND tribunal = 'TRF2' AND data_disponibilizacao = :data_disponibilizacao
                AND NOT EXISTS (
