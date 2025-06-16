@@ -7,12 +7,24 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 BOT_NAME = "trf2"
 
 SPIDER_MODULES = ["trf2.spiders"]
 NEWSPIDER_MODULE = "trf2.spiders"
 
 ADDONS = {}
+
+# Webshare proxy configuration
+WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY")
+WEBSHARE_PROXY_URL = os.getenv(
+    "WEBSHARE_PROXY_URL",
+    "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=500",
+)
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -62,9 +74,9 @@ LOG_LEVEL = 'INFO' # Pode ser DEBUG para mais detalhes
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "trf2.middlewares.Trf2DownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    "trf2.middlewares.ProxyRotationMiddleware": 610,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
