@@ -4,7 +4,9 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+import logging
+import random
+from .proxy_utils import carregar_proxies
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
@@ -99,8 +101,6 @@ class Trf2DownloaderMiddleware:
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
 
-import random
-from .proxy_utils import carregar_proxies
 
 class ProxyRotationMiddleware:
     """Selects a random proxy for each request using Webshare proxies."""
@@ -122,5 +122,26 @@ class ProxyRotationMiddleware:
         spider.logger.info(f"Proxy middleware loaded {len(self.proxies)} proxies")
 
     def process_request(self, request, spider):
-        if self.proxies:
-            request.meta['proxy'] = random.choice(self.proxies)
+        if 'proxy' in request.meta:
+            return
+
+        if not self.proxies:
+            spider.logger.error("A lista de proxies está vazia!")
+            return
+
+        proxy = random.choice(self.proxies)
+        request.meta['proxy'] = proxy
+        logging.debug(f"Usando proxy {proxy} para a requisição {request.url}")
+
+    def process_exception(self, request, exception, spider):
+        proxy = request.meta.get('proxy')
+        if proxy and proxy in self.proxies:
+            logging.warning(f"Proxy {proxy} falhou com a exceção: {exception.__class__.__name__}. Removendo da lista.")
+            self.proxies.remove(proxy)
+            
+            # Adiciona o proxy removido a uma lista de retentativa para não perder a requisição
+            new_request = request.copy()
+            new_request.meta.pop('proxy', None) # Remove o proxy para que seja escolhido um novo
+            return new_request
+        return None # Deixa outros middlewares de exceção tratarem
+

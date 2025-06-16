@@ -23,7 +23,7 @@ ADDONS = {}
 WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY")
 WEBSHARE_PROXY_URL = os.getenv(
     "WEBSHARE_PROXY_URL",
-    "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=500",
+    "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=3&page_size=100",
 )
 
 
@@ -31,7 +31,7 @@ WEBSHARE_PROXY_URL = os.getenv(
 #USER_AGENT = "trf2 (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False  
 USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0"
 
 # Configure item pipelines
@@ -41,21 +41,21 @@ ITEM_PIPELINES = {
 }
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 100
 
 # Configure a delay for requests for the same website (default: 0)
 # Veja https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # É MUITO IMPORTANTE configurar isso para não sobrecarregar o servidor.
-#DOWNLOAD_DELAY = 2 # Comece com um valor como 1 ou 2 segundos.
+DOWNLOAD_DELAY = 0 # Comece com um valor como 1 ou 2 segundos.
 # The download delay setting will honor only one of:
-# CONCURRENT_REQUESTS_PER_DOMAIN = 16
-CONCURRENT_REQUESTS_PER_IP = 2
+CONCURRENT_REQUESTS_PER_DOMAIN = 100
+CONCURRENT_REQUESTS_PER_IP = 0
 
 # Disable cookies (enabled by default)
 # COOKIES_ENABLED = False # Mantenha True, pois seu site usa cookies
 
 # Enable logging
-LOG_LEVEL = 'INFO' # Pode ser DEBUG para mais detalhes
+LOG_LEVEL = 'DEBUG' # Pode ser DEBUG para mais detalhes
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -75,7 +75,12 @@ LOG_LEVEL = 'INFO' # Pode ser DEBUG para mais detalhes
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
+    # Adicione o HttpProxyMiddleware padrão do Scrapy, necessário para o meta['proxy'] funcionar
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+    # Sua rotação de proxy
     "trf2.middlewares.ProxyRotationMiddleware": 610,
+    # Adicione o middleware de retry para lidar com 429 de forma mais inteligente
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
 }
 
 # Enable or disable extensions
@@ -96,10 +101,10 @@ AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 AUTOTHROTTLE_START_DELAY = 1
 # The maximum download delay to be set in case of high latencies
-AUTOTHROTTLE_MAX_DELAY = 60
+AUTOTHROTTLE_MAX_DELAY = 30
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
-AUTOTHROTTLE_TARGET_CONCURRENCY = 2.0
+AUTOTHROTTLE_TARGET_CONCURRENCY = 20.0
 # Enable showing throttling stats for every response received:
 AUTOTHROTTLE_DEBUG = True
 
@@ -110,6 +115,9 @@ AUTOTHROTTLE_DEBUG = True
 #HTTPCACHE_DIR = "httpcache"
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
+# Adicione o código de status 429 à lista de códigos para retry
+RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408, 429]
+
 
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"

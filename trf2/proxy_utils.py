@@ -5,7 +5,7 @@ import requests
 
 load_dotenv()
 
-API_URL_DEFAULT = "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=500"
+API_URL_DEFAULT = "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=3&page_size=100"
 API_URL = os.getenv("WEBSHARE_PROXY_URL", API_URL_DEFAULT)
 API_KEY = os.getenv("WEBSHARE_API_KEY")
 
