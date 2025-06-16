@@ -350,7 +350,7 @@ class EprocProcessoParser:
                         url_doc_absoluto = url_doc_relativo 
                 else:
                     url_doc_absoluto = "URL não disponível"
-                    print(f"--- DEBUG PARSER MOVIMENTACOES: Link na mov. {idx} sem href: {nome_doc}")
+                    #print(f"--- DEBUG PARSER MOVIMENTACOES: Link na mov. {idx} sem href: {nome_doc}")
 
                 documentos.append({"nome": nome_doc, "URL": url_doc_absoluto})
             
@@ -359,7 +359,7 @@ class EprocProcessoParser:
                 "Descricao": descricao_texto_limpo,
                 "Documentos": documentos
             }
-            print(f"--- DEBUG PARSER MOVIMENTACOES: Mov. {idx} processada. Data: {data_evento}, Desc: '{descricao_texto_limpo[:50]}...', Docs: {len(documentos)}")
+            #print(f"--- DEBUG PARSER MOVIMENTACOES: Mov. {idx} processada. Data: {data_evento}, Desc: '{descricao_texto_limpo[:50]}...', Docs: {len(documentos)}")
 
         if not movs:
             print("--- DEBUG PARSER MOVIMENTACOES: Nenhuma movimentação foi extraída da tabela 'tblEventos'.")
@@ -497,7 +497,7 @@ class EprocTrf2Spider(scrapy.Spider):
             self.logger.error("Não foi possível encontrar o hash de pesquisa no HTML da listagem.")
             return
 
-        self.logger.info(f"Hash de pesquisa rápida encontrado: {hash_pesquisa}")
+        #self.logger.info(f"Hash de pesquisa rápida encontrado: {hash_pesquisa}")
 
         # Preparar e fazer a requisição POST para buscar o processo
         search_url = f"{self.base_url}controlador.php?acao=processo_pesquisa_rapida&hash={hash_pesquisa}"
@@ -509,7 +509,7 @@ class EprocTrf2Spider(scrapy.Spider):
             # "hash": hash_pesquisa # Se o hash também for necessário no payload POST
         }
 
-        self.logger.info(f"Enviando POST para {search_url} com payload: {payload}")
+        #self.logger.info(f"Enviando POST para {search_url} com payload: {payload}")
 
         # Atualizando headers para a requisição POST
         post_headers = self.custom_headers.copy()
@@ -526,21 +526,21 @@ class EprocTrf2Spider(scrapy.Spider):
         )
 
     def parse_informacoes_adicionais_ajax(self, response, item, parser):
-          self.logger.info(f"Callback parse_informacoes_adicionais_ajax: Resposta AJAX recebida (Status: {response.status}).")
+          #self.logger.info(f"Callback parse_informacoes_adicionais_ajax: Resposta AJAX recebida (Status: {response.status}).")
 
           # ANTECIPAR O PROBLEMA: Verificar se esta resposta também é uma string HTML "escapada"
           ajax_content_type = response.headers.get('Content-Type', b'').decode('utf-8', 'ignore')
-          self.logger.info(f"--- DEBUG INFO_ADIC_AJAX: Content-Type: {ajax_content_type} ---")
-          self.logger.info(f"--- DEBUG INFO_ADIC_AJAX: repr(response.text[:100]): {repr(response.text[:100])} ---")
+          #self.logger.info(f"--- DEBUG INFO_ADIC_AJAX: Content-Type: {ajax_content_type} ---")
+          #self.logger.info(f"--- DEBUG INFO_ADIC_AJAX: repr(response.text[:100]): {repr(response.text[:100])} ---")
 
           cleaned_html_info_adicionais = response.text # Suposição inicial
 
           # Se o Content-Type for text/html mas o repr indicar que é uma string literal escapada:
           if cleaned_html_info_adicionais.startswith('"') and cleaned_html_info_adicionais.endswith('"'):
-              self.logger.info("--- DEBUG INFO_ADIC_AJAX: Resposta parece ser string literal. Tentando json.loads(). ---")
+              #self.logger.info("--- DEBUG INFO_ADIC_AJAX: Resposta parece ser string literal. Tentando json.loads(). ---")
               try:
                   cleaned_html_info_adicionais = json.loads(cleaned_html_info_adicionais)
-                  self.logger.info("--- DEBUG INFO_ADIC_AJAX: HTML de Info Adicionais limpo com json.loads(). ---")
+                  #self.logger.info("--- DEBUG INFO_ADIC_AJAX: HTML de Info Adicionais limpo com json.loads(). ---")
               except json.JSONDecodeError as e:
                   self.logger.error(f"--- DEBUG INFO_ADIC_AJAX: Falha ao limpar HTML de Info Adicionais com json.loads(): {e}. Usando texto original.")
           
@@ -553,12 +553,12 @@ class EprocTrf2Spider(scrapy.Spider):
           
           if dados_info_adicional:
               item['info_adicional'] = dados_info_adicional
-              self.logger.info(f"Informações Adicionais extraídas: {len(dados_info_adicional)} campos.")
+              #self.logger.info(f"Informações Adicionais extraídas: {len(dados_info_adicional)} campos.")
           else:
-              self.logger.warning("Nenhuma Informação Adicional foi extraída pelo parser.")
+              #self.logger.warning("Nenhuma Informação Adicional foi extraída pelo parser.")
               item['info_adicional'] = {} 
 
-          self.logger.info(f"Item final pronto para ser enviado: {item['numero_processo_raw']}")
+          #self.logger.info(f"Item final pronto para ser enviado: {item['numero_processo_raw']}")
           yield item 
 
     def _extrair_url_informacoes_adicionais(self, main_page_html_text, main_page_response):
@@ -567,7 +567,7 @@ class EprocTrf2Spider(scrapy.Spider):
           main_page_html_text: O conteúdo HTML da página principal do processo.
           main_page_response: O objeto Response da página principal, para usar response.urljoin().
           """
-          self.logger.debug("Tentando extrair URL das Informações Adicionais.")
+          #self.logger.debug("Tentando extrair URL das Informações Adicionais.")
           # O onclick está em: <legend id="legInfAdicional" ... onclick="carregarInformacoesAdicionais('URL', {PARAMS});">
           onclick_attr_match = re.search(
               r'<legend[^>]*id="legInfAdicional"[^>]*onclick="([^"]+)"',
@@ -597,8 +597,8 @@ class EprocTrf2Spider(scrapy.Spider):
         Callback para a página de detalhes do processo (após o redirect do POST).
         Aqui instanciamos o parser e extraímos os dados.
         """
-        self.logger.info(f"Página de detalhes do processo carregada: {response.url}")
-        self.logger.info(f"Status code: {response.status}")
+        #self.logger.info(f"Página de detalhes do processo carregada: {response.url}")
+        #self.logger.info(f"Status code: {response.status}")
 
         parser = EprocProcessoParser(response.text, response.url)
 
@@ -634,7 +634,7 @@ class EprocTrf2Spider(scrapy.Spider):
                   }
             )
         elif url_info_adicionais: # Não há AJAX de partes, mas há de info adicionais
-              self.logger.info("Nenhum AJAX para Partes, mas prosseguindo para Informações Adicionais.")
+              #self.logger.info("Nenhum AJAX para Partes, mas prosseguindo para Informações Adicionais.")
               # Popular o item com as partes principais (não AJAX) e outros dados da pág. principal
               # Se extract_all pode ser chamado com partes_ocultas_ajax=None:
               temp_data = parser.extract_all(partes_principais=partes_principais, partes_ocultas_ajax=None)
@@ -652,7 +652,7 @@ class EprocTrf2Spider(scrapy.Spider):
                   cb_kwargs={'item': item, 'parser': parser}
               )
         else:
-            self.logger.info("Nenhum parâmetro AJAX para partes ocultas encontrado. Prosseguindo sem elas.")
+            #self.logger.info("Nenhum parâmetro AJAX para partes ocultas encontrado. Prosseguindo sem elas.")
             # Se não houver chamada AJAX, finalize a extração com o que temos
             item_data = parser.extract_all(partes_principais=partes_principais, partes_ocultas_ajax=None)
 
@@ -667,15 +667,15 @@ class EprocTrf2Spider(scrapy.Spider):
             yield item
 
     def parse_ajax_hidden_parts(self, response, item, parser, partes_principais, url_info_adicionais):
-          self.logger.info(f"Callback parse_ajax_hidden_parts: Resposta AJAX para Partes recebida (Status: {response.status}).")
+          #self.logger.info(f"Callback parse_ajax_hidden_parts: Resposta AJAX para Partes recebida (Status: {response.status}).")
           
           cleaned_html_partes = ""
           try:
               # Limpa a string HTML da resposta AJAX das Partes (como feito anteriormente)
               cleaned_html_partes = json.loads(response.text)
-              self.logger.info("parse_ajax_hidden_parts: HTML das Partes limpo com json.loads().")
+              #self.logger.info("parse_ajax_hidden_parts: HTML das Partes limpo com json.loads().")
           except json.JSONDecodeError:
-              self.logger.error("parse_ajax_hidden_parts: Falha ao limpar HTML das Partes com json.loads(). Usando response.text diretamente.")
+              #self.logger.error("parse_ajax_hidden_parts: Falha ao limpar HTML das Partes com json.loads(). Usando response.text diretamente.")
               cleaned_html_partes = response.text
 
           partes_ocultas_ajax = parser.parse_hidden_parts_from_ajax_response(cleaned_html_partes)
