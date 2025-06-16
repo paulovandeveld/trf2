@@ -1,5 +1,6 @@
 import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import pandas as pd
 from sqlalchemy import create_engine, text
 # from airflow.hooks.base import BaseHook  # Uncomment when running in Airflow
@@ -20,13 +21,22 @@ def fetch_process_numbers():
         # )
 
         # --- Local implementation ---
-        user = os.getenv("SQLSERVER_USER")
+        load_dotenv()
+        user =  os.getenv("SQLSERVER_USER")
         password = os.getenv("SQLSERVER_PASSWORD")
         server = os.getenv("SQLSERVER_HOST")
         database = os.getenv("SQLSERVER_DB")
+
+        if not all([user, password, server, database]):
+            raise ValueError("Uma ou mais variáveis de ambiente do SQL Server não foram definidas.")
+
+        driver = "ODBC+Driver+18+for+SQL+Server"
         connection_string = (
-            f"mssql+pyodbc://{user}:{password}@{server}:1433/{database}"
-            "?driver=ODBC+Driver+18+for+SQL+Server&Encrypt=yes&TrustServerCertificate=yes&Connection Timeout=60&MARS_Connection=yes"
+            f"mssql+pyodbc://{user}:{password}@{server}:1433/{database}?"
+            f"driver={driver}&"
+            "Encrypt=Strict&"  # Exige criptografia
+            "TrustServerCertificate=no&" # Não confia cegamente, valida usando o trust store do sistema
+            "ConnectionTimeout=30"
         )
 
         engine = create_engine(
@@ -41,7 +51,7 @@ def fetch_process_numbers():
         query = """
             SELECT TOP 20 numero_processo
             FROM dbo.cnjComunicacoesProcessuais c
-            WHERE tribunal = 'TRF2' AND data_disponibilizacao = :data_disponibilizacao
+            WHERE link_documento LIKE 'https://eproc.trf2%' AND tribunal = 'TRF2' AND data_disponibilizacao = :data_disponibilizacao
                AND NOT EXISTS (
                   SELECT 1
                   FROM pje.Processos p

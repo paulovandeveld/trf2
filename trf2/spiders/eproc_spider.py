@@ -453,14 +453,14 @@ class EprocTrf2Spider(scrapy.Spider):
     }
 
     # Lista padrão de processos. Pode ser sobrescrita via argumento ou script.
-    default_processos = ["5015384-20.2021.4.02.5001"]
+    #default_processos = ["5015384-20.2021.4.02.5001"]
 
     def __init__(self, processos=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if processos:
             self.processos = processos if isinstance(processos, list) else [processos]
-        else:
-            self.processos = self.default_processos
+        '''else:
+            self.processos = self.default_processos'''
 
     def start_requests(self):
         """Enfileira uma requisição inicial para cada processo."""
