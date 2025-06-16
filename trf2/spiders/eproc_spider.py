@@ -441,13 +441,15 @@ class EprocTrf2Spider(scrapy.Spider):
     }
 
     initial_cookies = {
-        "_ga_CHRMKCJTEH": "GS2.1.s1747842134$o2$g0$t1747842134$j0$l0$h0",
-        "_ga": "GA1.3.717254265.1747839473",
-        "PHPSESSID": "fprie2qpo6lbjfsqdm1ikljsdv",  # Este é geralmente dinâmico
+        "_ga_CHRMKCJTEH": "deleted",
+        "_ga": "GA1.3.2142236572.1749072110",
+        "PHPSESSID": "om75dmkttd242aqo00jo82g4g1",  # Este é geralmente dinâmico
         "dicas_vistas": "[1]",
-        "data_ultima_dica_vista": "29/05/2025",  # Ajuste se necessário
+        "data_ultima_dica_vista": "16/06/2025",  # Ajuste se necessário
+        "EPROC_A_TRF2_6342187bc0a248b388a58f8028e8927c1408f3c70f61f77496ecc66ac89baf62":
+            "0001m399wkctbw3kgj2zq5gk335427ad4a835640e0784ae422f1dfc5a183416158cfefd017d9732087229084c3168833acea4c33848cf545ba6a2e50d764e73602cefab6a469dcee34c2f2adf7",
         "EPROC_D_TRF2_6342187bc0a248b388a58f8028e8927c1408f3c70f61f77496ecc66ac89baf62":
-            "0001m399wkctbw3kgj2zq5gk333aa0cc65ac1b513133b7e3328aaff9871923d1d57d8ba62ab9b098513badb7b2822fd02e7fa4c5c6ff19b8af895a87d00c46772412722cf71f7bf9bd5070460b",
+            "0001m399wkctbw3kgj2zq5gk3355379cf90e819723f8368639823d2726faf373844440921c75d50f6e0a875dd6a0c3aefd6190acb32b023346966099ecdef6b6f4872340f78e5e18f80328357a",
     }
 
     # Número do processo que você quer buscar (pode vir de um argumento, lista, etc.)

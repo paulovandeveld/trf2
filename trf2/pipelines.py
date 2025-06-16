@@ -10,6 +10,7 @@ from itemadapter import ItemAdapter
 # trf2/pipelines.py
 
 import json
+from .azure_utils import save_json_blob
 
 
 class JsonWriterPipeline:
@@ -30,8 +31,15 @@ class JsonWriterPipeline:
 
         # Convertendo o Item do Scrapy para um dicionário antes de salvar
         # para garantir que todos os dados sejam serializáveis.
-        line = json.dumps(dict(item), ensure_ascii=False, indent=4)
+        data = dict(item)
+        line = json.dumps(data, ensure_ascii=False, indent=4)
         with open(output_filename, 'w', encoding='utf-8') as f:
             f.write(line)
         spider.logger.info(f"Dados do processo {raw_num} salvos em {output_filename}")
+        
+        try:
+            save_json_blob(raw_num, data)
+        except Exception as e:
+            spider.logger.error(f"Erro ao salvar JSON no Azure: {e}")
+
         return item
