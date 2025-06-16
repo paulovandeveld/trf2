@@ -13,7 +13,7 @@ def main():
         print("Nenhum processo encontrado para processamento.")
         return
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".json", mode="w") as tmp:
+    with tempfile.NamedTemporaryFile(delete=True, suffix=".json", mode="w") as tmp:
         json.dump(processos, tmp, ensure_ascii=False)
         print(f"Lista de processos salva em {tmp.name}")
 
