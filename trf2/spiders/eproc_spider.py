@@ -452,24 +452,29 @@ class EprocTrf2Spider(scrapy.Spider):
             "0001m399wkctbw3kgj2zq5gk3355379cf90e819723f8368639823d2726faf373844440921c75d50f6e0a875dd6a0c3aefd6190acb32b023346966099ecdef6b6f4872340f78e5e18f80328357a",
     }
 
-    # Número do processo que você quer buscar (pode vir de um argumento, lista, etc.)
-    # Para este exemplo, vamos usar o mesmo do seu script.
-    # Em um caso real, você pode passar isso via `scrapy crawl eproc_trf2 -a processo=NUMERO`
-    processo_alvo = "5015384-20.2021.4.02.5001"
+    # Lista padrão de processos. Pode ser sobrescrita via argumento ou script.
+    default_processos = ["5015384-20.2021.4.02.5001"]
+
+    def __init__(self, processos=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if processos:
+            self.processos = processos if isinstance(processos, list) else [processos]
+        else:
+            self.processos = self.default_processos
 
     def start_requests(self):
-        """
-        Ponto de entrada da spider. Faz a primeira requisição GET para a página inicial.
-        """
-        self.logger.info("Iniciando spider. Fazendo requisição GET inicial.")
-        yield scrapy.Request(
-            url=self.base_url,
-            headers=self.custom_headers,
-            cookies=self.initial_cookies,
-            callback=self.parse_initial_page
-        )
+        """Enfileira uma requisição inicial para cada processo."""
+        for proc in self.processos:
+            self.logger.info(f"Iniciando scraping para o processo {proc}")
+            yield scrapy.Request(
+                url=self.base_url,
+                headers=self.custom_headers,
+                cookies=self.initial_cookies,
+                callback=self.parse_initial_page,
+                cb_kwargs={"processo": proc},
+            )
 
-    def parse_initial_page(self, response):
+    def parse_initial_page(self, response, processo):
         """
         Callback para a resposta da página inicial. Extrai o hash de pesquisa.
         """
@@ -497,7 +502,7 @@ class EprocTrf2Spider(scrapy.Spider):
         search_url = f"{self.base_url}controlador.php?acao=processo_pesquisa_rapida&hash={hash_pesquisa}"
 
         payload = {
-            "txtNumProcessoPesquisaRapida": self.processo_alvo,
+            "txtNumProcessoPesquisaRapida": processo,
             "btnPesquisaRapidaSubmit": "",  # Valor exato pode ser importante
             "acao_retorno_pesquisa_rapida": "painel_adv_listar",  # Ou o que for necessário
             # "hash": hash_pesquisa # Se o hash também for necessário no payload POST
@@ -515,10 +520,8 @@ class EprocTrf2Spider(scrapy.Spider):
             url=search_url,
             formdata=payload,
             headers=post_headers,
-            # cookies=self.initial_cookies, # Scrapy gerencia cookies entre requests na mesma spider por padrão
-            callback=self.parse_process_page,  # Scrapy seguirá o redirect automaticamente
-            # Passando o número do processo para o próximo callback, se necessário
-            cb_kwargs={'processo_numero_raw': self.processo_alvo.replace(".", "").replace("-", "")}
+            callback=self.parse_process_page,
+            cb_kwargs={"processo_numero_raw": processo.replace(".", "").replace("-", "")},
         )
 
     def parse_informacoes_adicionais_ajax(self, response, item, parser):
