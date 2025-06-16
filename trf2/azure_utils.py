@@ -1,16 +1,23 @@
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import json
 import re
+import os
 
 from azure.storage.blob import BlobServiceClient
 
+load_dotenv()
+
+ACCOUNT_NAME = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
+ACCOUNT_KEY = os.getenv("AZURE_STORAGE_ACCOUNT_KEY")
 
 def check_json_blob(processo_id):
     """Check if a JSON file already exists in Azure Blob Storage."""
     CONNECTION_STRING = (
-        "DefaultEndpointsProtocol=https;AccountName=storagediariooficial;"
-        "AccountKey=AZURE_KEY_REMOVIDO;"
-        "EndpointSuffix=core.windows.net"
+        f"DefaultEndpointsProtocol=https;"
+        f"AccountName={ACCOUNT_NAME};"
+        f"AccountKey={ACCOUNT_KEY};"
+        f"EndpointSuffix=core.windows.net"
     )
     CONTAINER_NAME = "json-processos"
 
@@ -35,9 +42,10 @@ def check_json_blob(processo_id):
 def save_json_blob(processo_id, full_json):
     """Save JSON to Azure Blob Storage under trf2_eproc/{data_ref}/{processo_id}.json."""
     CONNECTION_STRING = (
-        "DefaultEndpointsProtocol=https;AccountName=storagediariooficial;"
-        "AccountKey=AZURE_KEY_REMOVIDO;"
-        "EndpointSuffix=core.windows.net"
+        f"DefaultEndpointsProtocol=https;"
+        f"AccountName={ACCOUNT_NAME};"
+        f"AccountKey={ACCOUNT_KEY};"
+        f"EndpointSuffix=core.windows.net"
     )
     CONTAINER_NAME = "json-processos"
 

@@ -22,7 +22,7 @@ def fetch_process_numbers():
         # --- Local implementation ---
         user = os.getenv("SQLSERVER_USER")
         password = os.getenv("SQLSERVER_PASSWORD")
-        server = os.getenv("SQLSERVER_HOST", "localhost")
+        server = os.getenv("SQLSERVER_HOST")
         database = os.getenv("SQLSERVER_DB")
         connection_string = (
             f"mssql+pyodbc://{user}:{password}@{server}:1433/{database}"
@@ -37,11 +37,11 @@ def fetch_process_numbers():
             pool_recycle=1800,
         )
 
-        data_anterior = (datetime.today() - timedelta(days=1)).strftime("%Y-%m-%d")
+        data_anterior = (datetime.today() - timedelta(days=3)).strftime("%Y-%m-%d")
         query = """
-            SELECT numero_processo
+            SELECT TOP 20 numero_processo
             FROM dbo.cnjComunicacoesProcessuais c
-            WHERE link_documento LIKE 'https://pje1g.%' AND tribunal = 'TRF3' AND data_disponibilizacao = :data_disponibilizacao
+            WHERE tribunal = 'TRF2' AND data_disponibilizacao = :data_disponibilizacao
                AND NOT EXISTS (
                   SELECT 1
                   FROM pje.Processos p
